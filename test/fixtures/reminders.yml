@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  datetime: 2012-09-25 23:12:04
+  message: MyText
+  staff: 
+
+two:
+  datetime: 2012-09-25 23:12:04
+  message: MyText
+  staff: 

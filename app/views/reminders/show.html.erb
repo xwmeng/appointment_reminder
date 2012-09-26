@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Staff:</b>
+  <%= @reminder.staff.name %>
+</p>
+
+<p>
+  <b>Datetime:</b>
+  <%= @reminder.datetime.strftime("%Y-%m-%d %T") %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @reminder.message %>
+</p>
+
+<p>
+  <b>Sent:</b>
+  <%= @reminder.is_sent%>
+</p>
+
+
+<%= link_to 'Edit', edit_reminder_path(@reminder) %> |
+<%= link_to 'Back', reminders_path %>

@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @staff.name %>
+</p>
+
+<p>
+  <b>Payroll number:</b>
+  <%= @staff.payroll_number %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @staff.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @staff.email %>
+</p>
+
+<%= link_to 'Edit', edit_staff_path(@staff) %> |
+<%= link_to 'Back', staffs_path %>
+
+<h2>reminders</h2>
+
+<%= link_to 'View all reminders', :controller => "staffs", :action => "show", :id => @staff.id  %> |
+<%= link_to 'View sent reminders', :controller => "staffs", :action => "show", :id => @staff.id, :is_sent => "yes" %> |
+<%= link_to 'View upcoming reminders', :controller => "staffs", :action => "show", :id => @staff.id, :is_sent => "no" %> |
+
+
+<table>
+  <tr>
+    <th>Datetime</th>
+    <th>Message</th>
+    <th>Is Sent</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reminders.each do |reminder| %>
+  <tr>
+    <td><%= reminder.datetime.strftime("%Y-%m-%d %T") %></td>
+    <td><%= reminder.message %></td>
+    <td><%= reminder.is_sent %></td>
+    <td><%= link_to 'Show', reminder %></td>
+    <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
+    <td><%= link_to 'Destroy', reminder, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New reminder', :controller => "reminders", :action => "new", :staff_id => @staff.id %>

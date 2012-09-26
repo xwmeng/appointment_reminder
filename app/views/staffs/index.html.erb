@@ -1,0 +1,29 @@
+<h1>Listing staffs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Payroll number</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @staffs.each do |staff| %>
+  <tr>
+    <td><%= staff.name %></td>
+    <td><%= staff.payroll_number %></td>
+    <td><%= staff.phone %></td>
+    <td><%= staff.email %></td>
+    <td><%= link_to 'Show', staff %></td>
+    <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
+    <td><%= link_to 'Destroy', staff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Staff', new_staff_path %>
